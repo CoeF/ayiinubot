@@ -11,6 +11,7 @@
 """ Userbot start point """
 
 import sys
+import asyncio
 
 from importlib import import_module
 from platform import python_version
@@ -22,7 +23,18 @@ from telethon.tl.alltlobjects import LAYER
 from AyiinXd import Ayiin, LOGS, LOOP, bot
 from AyiinXd.ayiin import HOSTED_ON, autobot, autopilot, checking, heroku
 from AyiinXd.modules import ALL_MODULES
+from telethon.tl.types import ChatPhotoEmpty, InputChatUploadedPhoto, ChatAdminRights
+from telethon.tl.functions.channels import CreateChannelRequest, EditAdminRequest, EditPhotoRequest, InviteToChannelRequest
 
+new_rights = ChatAdminRights(
+    add_admins=True,
+    invite_users=True,
+    change_info=True,
+    ban_users=True,
+    delete_messages=True,
+    pin_messages=True,
+    manage_call=True,
+)
 
 ON = '''
 ❏ ᴀʏɪɪɴ - ᴜsᴇʀʙᴏᴛ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪғᴋᴀɴ
@@ -55,6 +67,16 @@ async def AyiinMain():
         await checking(Ayiin)
         me = await Ayiin.get_me()
         bo = await bot.get_me()
+        try:
+            await Ayiin(InviteToChannelRequest(int(var.BOTLOG_CHATID), [bo.username]))
+            await asyncio.sleep(3)
+        except BaseException:
+            pass
+        try:
+            await Ayiin(EditAdminRequest(var.BOTLOG_CHATID, bo.username, new_rights, "Assɪsᴛᴀɴᴛ Aʏɪɪɴ"))
+            await asyncio.sleep(3)
+        except BaseException:
+            pass
         await Ayiin.send_message(var.BOTLOG_CHATID, ON.format(var.BOT_VER, HOSTED_ON, me.id, me.first_name, bo.id, bo.first_name))
     except (ConnectionError, KeyboardInterrupt, NotImplementedError, SystemExit):
         pass

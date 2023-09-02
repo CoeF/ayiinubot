@@ -182,16 +182,16 @@ async def autobot():
                 )
                 LOGS.info(
                     f"BERHASIL MEMBUAT ASSISTANT BOT ANDA DENGAN USERNAME @{username}")
-                try:
-                    await Ayiin(InviteToChannelRequest(int(var.BOTLOG_CHATID), [username]))
-                    await asyncio.sleep(3)
-                except BaseException:
-                    pass
-                try:
-                    await Ayiin(EditAdminRequest(var.BOTLOG_CHATID, username, new_rights, "Assɪsᴛᴀɴᴛ Aʏɪɪɴ"))
-                    await asyncio.sleep(3)
-                except BaseException:
-                    pass
+                # try:
+                #     await Ayiin(InviteToChannelRequest(int(var.BOTLOG_CHATID), [username]))
+                #     await asyncio.sleep(3)
+                # except BaseException:
+                #     pass
+                # try:
+                #     await Ayiin(EditAdminRequest(var.BOTLOG_CHATID, username, new_rights, "Assɪsᴛᴀɴᴛ Aʏɪɪɴ"))
+                #     await asyncio.sleep(3)
+                # except BaseException:
+                #     pass
                 await Ayiin.send_message(
                     var.BOTLOG_CHATID,
                     "**SEDANG MERESTART USERBOT HARAP TUNGGU.**",
@@ -238,16 +238,16 @@ async def autobot():
             LOGS.info(
                 f"BERHASIL MEMBUAT ASSISTANT BOT DENGAN USERNAME @{username}"
             )
-            try:
-                await Ayiin(InviteToChannelRequest(int(var.BOTLOG_CHATID), [username]))
-                await asyncio.sleep(3)
-            except BaseException:
-                pass
-            try:
-                await Ayiin(EditAdminRequest(var.BOTLOG_CHATID, username, new_rights, "Assɪsᴛᴀɴᴛ Aʏɪɪɴ"))
-                await asyncio.sleep(3)
-            except BaseException:
-                pass
+            # try:
+            #     await Ayiin(InviteToChannelRequest(int(var.BOTLOG_CHATID), [username]))
+            #     await asyncio.sleep(3)
+            # except BaseException:
+            #     pass
+            # try:
+            #     await Ayiin(EditAdminRequest(var.BOTLOG_CHATID, username, new_rights, "Assɪsᴛᴀɴᴛ Aʏɪɪɴ"))
+            #     await asyncio.sleep(3)
+            # except BaseException:
+            #     pass
             await Ayiin.send_message(
                 var.BOTLOG_CHATID,
                 "**SEDANG MERESTART USERBOT HARAP TUNGGU.**",
